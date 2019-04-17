@@ -8,6 +8,30 @@ CREATE SCHEMA prj_unemployment_etl;
 use prj_unemployment_etl;
 
 
+/*
+Reference Columns to Dataframe Columns
+county = county_name
+crime_rate_per_10000 = crime_rate_per_100000
+county_popu_agn_rep_arrest = CPOPARST
+county_popu_agn_rep_crimes = CPOPCRIM
+number_agn_in_county_rep_arrest = AGARRST
+number_agn_in_county_rep_crimes = AGOFF,
+coverage_indicator = COVIND,
+ucr_index = INDEX,
+ucr_mod_index = MODINDX,
+number_of_murders = MURDER,
+number_of_rapes = RAPE,
+number_of_robbery = ROBBERY,
+number_of_aggravated_assault = AGASSLT,
+number_of_burglery = BURGLRY,
+number_of_larceny = LARCENY,
+number_of_motor_vhcle_theft = MVTHEFT,
+number_of_arsons = ARSON,
+population_count = population,
+average_unemployment_rate = from the Other Data-Frame,
+*/
+
+
 DROP TABLE IF EXISTS unemployment_and_crime_by_year;
 
 CREATE TABLE unemployment_and_crime_by_year (
