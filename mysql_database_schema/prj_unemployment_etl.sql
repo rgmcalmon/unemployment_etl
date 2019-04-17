@@ -8,30 +8,6 @@ CREATE SCHEMA prj_unemployment_etl;
 use prj_unemployment_etl;
 
 
-ALTER TABLE unemployment_and_crime_by_year_month COMMENT = 'https://www.kaggle.com/mikejohnsonjr/united-states-crime-rates-by-county/discussion/27312
-index: Table Index
-EDITION: Edition Number
-PART: Part Number
-IDNO: SEQUENTIAL CASE ID 
-CPOPARST: COUNTY POPULATION-AGENCIES REPORT ARRESTS 
-CPOPCRIM: COUNTY POPULATION-AGENCIES REPORT CRIMES
-AGARRST: NUMBER OF AGENCIES IN COUNTY REPORT ARRESTS
-AGOFF: NUMBER OF AGENCIES IN COUNTY REPORT CRIMES
-COVIND: COVERAGE INDICATOR 
-INDEX: Total number of UCR (Uniform Crime Report) Index crimes, excluding arson. The sum of variables MURDER through MVTHEFT.
-MODINDX: MODIFIED INDEX. Total number of UCR (Uniform Crime Report) index crimes reported, including arson (sum of variables, MURDER through ARSON)
-MURDER: Number of MURDERS
-RAPE: Number of RAPES
-ROBBERY: Number of ROBBERIES
-AGASSLT: Number of AGGRAVATED ASSAULTS 
-BURGLRY: Number of BURGLARIES 
-LARCENY: Number of LARCENIES
-MVTHEFT: Number of MOTOR VEHICLE THEFTS 
-ARSON: Number of ARSONS 
-population: POPULATION 
-FIPSST: FIPS STATE CODE
-FIPSCTY: FIPS COUNTY CODE';
-
 DROP TABLE IF EXISTS unemployment_and_crime_by_year;
 
 CREATE TABLE unemployment_and_crime_by_year (
