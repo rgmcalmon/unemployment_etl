@@ -28,4 +28,4 @@ After these steps had been taken, the fact remained that the crime rate data cov
 * Merge the unemployment and crime rate data using an inner join on the county and state columns
 
 __Load__:
-Using SQLAlchemy, we created the database schema and loaded the merged dataframe into a MySQL database using pandas' `DataFrame.to_sql()` function.
+Using SQLAlchemy, we created the database schema and loaded the merged dataframe into a MySQL database using pandas' `DataFrame.to_sql()` function. We chose to use a relational database since the resulting table is naturally indexed by county and state, and storing the table with an actual primary key eliminates future difficulties that could be had when trying to use this table with other data - namely, difficulties of the type we had to deal with when merging on county names.
