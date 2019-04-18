@@ -4,6 +4,7 @@
 For this project, we took data for unemployment per county and merged it with data on crime rates per county.
 
 __Extract__:
+
 There were three data sources which were used:
 1. Unemployment data from a JSON file [https://www.kaggle.com/jayrav13/unemployment-by-county-us](https://www.kaggle.com/jayrav13/unemployment-by-county-us).
 2. 2013 crime rate data from a CSV file on [https://www.kaggle.com/mikejohnsonjr/united-states-crime-rates-by-county](https://www.kaggle.com/mikejohnsonjr/united-states-crime-rates-by-county)
@@ -12,6 +13,7 @@ There were three data sources which were used:
 The CSV files were easily loaded into pandas dataframes thanks to pandas' built in `DataFrame.read_csv()` function. The JSON file was read into a Python `dict`. It was unruly and contained extraneous information, so it had to be loaded more deliberately into a pandas dataframe. Only the annual data from the year 2013 was recorded from the `dict` into the dataframe, so that it would match the type of data coming from the crime reports.
 
 __Transform__:
+
 The goal of the transformation stage was to join the unemployment data and the crime data by county and state. First, an obvious discrepancy had to be addressed: the county and state were listed as a single column of form "[County], [ST]" where ST is the two letter state abbreviation in the crime rate data, but in the unemployment dataframe, they were listed as two columns, and the state name was spelled out in full. The discrepancy was addressed as follows:
 1. Use the state-name to state-abbreviation dataframe to map the state names to state abbreviations in the unemployment data.
 2. Split the county+state column in the crime rate data into two columns: a county column and a state abbreviation column.
@@ -28,4 +30,5 @@ After these steps had been taken, the fact remained that the crime rate data cov
 * Merge the unemployment and crime rate data using an inner join on the county and state columns
 
 __Load__:
+
 Using SQLAlchemy, we created the database schema and loaded the merged dataframe into a MySQL database using pandas' `DataFrame.to_sql()` function. We chose to use a relational database since the resulting table is naturally indexed by county and state, and storing the table with an actual primary key eliminates future difficulties that could be had when trying to use this table with other data - namely, difficulties of the type we had to deal with when merging on county names.
