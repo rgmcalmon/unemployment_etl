@@ -15,6 +15,14 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+DROP SCHEMA IF EXISTS prj_unemployment;
+
+/* Create Schema */
+CREATE SCHEMA prj_unemployment;
+
+/* Set the Current Schema for Use */
+use prj_unemployment;
+
 --
 -- Table structure for table `crime_rate_joined`
 --
